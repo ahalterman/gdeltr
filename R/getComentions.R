@@ -1,7 +1,7 @@
-#' Given a subsetted dataframe from the Global Knowledge Graph, return a df with co-mentions, formatted for Gephi.
+#' Given a subsetted dataframe from the Global Knowledge Graph, return a df with co-mentions.
 #' 
-#' This should have an option for specificying co-mentioned counties, people, oranizations
-#'
+#' This should have an option for specificying co-mentioned counties, people, oranizations.
+#' This is designed for export to social network analysis software.  Run the output through \code{write.gephi} if needed.
 #'
 #' @param gkg.df A subset of the Global Knowledge Graph \code{gkg.df}
 #' @param type Data types to subset: "persons", "organizations", "countries", or "placenames". \code{gkg.df}
@@ -24,8 +24,6 @@ getComentions <- function(gkg.df, type) {
     nMax <- max(sapply(orgs, length))
     orgs <- cbind(t(sapply(orgs, function(i) i[1:nMax])))
     orgs <- as.data.frame(orgs)
-    pst <- function(x) {paste0("\'", x, "\'")}
-    orgs <- as.data.frame(lapply(orgs[,1:ncol(orgs)], FUN= function(x) {sapply(x, FUN=pst)}))
     return(orgs)
   }
   
@@ -35,8 +33,6 @@ getComentions <- function(gkg.df, type) {
     nMax <- max(sapply(persons, length))
     persons <- cbind(t(sapply(persons, function(i) i[1:nMax])))
     persons <- as.data.frame(persons)
-    pst <- function(x) {paste0("\'", x, "\'")}
-    persons <- as.data.frame(lapply(persons[,1:ncol(persons)], FUN= function(x) {sapply(x, FUN=pst)}))
     return(persons)
   }
   if (type=="countries"){
@@ -54,8 +50,6 @@ getComentions <- function(gkg.df, type) {
     }
     cc <- function(x) {countrycode(x, "fips104", "country.name")}
     countries.df <- as.data.frame(lapply(countries.df[,1:ncol(countries.df)],FUN = function(x) {sapply(x,FUN=cc)}))
-    pst <- function(x) {paste0("\'", x, "\'")}
-    countries.df <- as.data.frame(lapply(countries.df[,1:ncol(countries.df)], FUN= function(x) {sapply(x, FUN=pst)}))
     return(countries.df)
   }
   
