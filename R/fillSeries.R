@@ -1,8 +1,5 @@
 #' Fills in missing dates in a data frame of GDELT events for plotting or time series analysis
 #' 
-#' 
-#' it works. It may be a paragraph that should not be separated
-#' by any spaces. 
 #'
 #' @param df A GDELT dataframe.  \code{df}
 #' @param begin.date The earliest date.  Defaults to Jan 1, 2000.  \code{begin.date}

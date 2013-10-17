@@ -17,6 +17,6 @@
 
 write.gephi <- function(gkg.df, filename) { 
 pst <- function(x) {paste0("\'", x, "\'")}
-gkg.df <- as.data.frame(lapply(gkg.df[,1:ncols(gkg.df)], FUN= function(x) {sapply(x, FUN=pst)}))
+gkg.df <- as.data.frame(lapply(gkg.df[,1:ncol(gkg.df)], FUN= function(x) {sapply(x, FUN=pst)}))
 write.table(gkg.df, file=filename, sep=";", row.names=FALSE, col.names=FALSE)
 }
