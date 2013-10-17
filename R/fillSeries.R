@@ -1,15 +1,18 @@
-#' A one sentence description of what your function does
+#' Fills in missing dates in a data frame of GDELT events for plotting or time series analysis
 #' 
-#' A more detailed description of what the function is and how
+#' 
 #' it works. It may be a paragraph that should not be separated
 #' by any spaces. 
 #'
-#' @param inputParameter1 A description of the input parameter \code{inputParameter1}
-#' @param inputParameter2 A description of the input parameter \code{inputParameter2}
+#' @param df A GDELT dataframe.  \code{df}
+#' @param begin.date The earliest date.  Defaults to Jan 1, 2000.  \code{begin.date}
+#' @param end.date The last date.  Defaults to Sept 30, 2013.  \code{end.date}
+#' @param date.column The name of the column containing dates.  Defaults to "SQLDATE" \code{date.column}
+#' 
 #'
-#' @return output A description of the object the function outputs 
+#' @return df2 A 
 #'
-#' @keywords keywords
+#' @keywords GDELT
 #'
 #' @export
 #' 
@@ -17,12 +20,17 @@
 #' R code here showing how your function works
 #' 
 
-fillSeries <- function(df){
-  daily <- as.data.frame(seq(from=as.Date("2000-01-01"), to=as.Date("2013-09-28"), by="1 day"))
+fillSeries <- function(df, begin.date="2000-01-01", end.date="2013-09-30", date.column="SQLDATE", extraclean=FALSE){
+  daily <- as.data.frame(seq(from=as.Date(begin.date), to=as.Date(end.date), by="1 day"))
   names(daily) <- "Date"
-  df2 <- merge(x=daily, y=df, by.x="Date", by.y="SQLDATE", all.x=TRUE)
-  df2[is.na(df2$count),5] <- 0
-  df2 <- df2[,c(1:5)]
-  names(df2) <- c("Date", "ActionGeo_Lat", "ActionGeo_Long", "EventRootCode", "Count")
-  return(df2)
+  df <- merge(x=daily, y=df, by.x="Date", by.y=date.column, all.x=TRUE)
+  if (extraclean==TRUE) {
+  df[is.na(df$count),5] <- 0
+  df <- df[,c(1:5)]
+  names(df) <- c("Date", "ActionGeo_Lat", "ActionGeo_Long", "EventRootCode", "Count")
+  return(df)
+  }
+  else {
+  return(df)
+  }
 }
