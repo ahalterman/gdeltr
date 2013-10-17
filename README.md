@@ -4,7 +4,7 @@ gdeltr
 R package with tools for working with GDELT
 
 
-`gdelter` is my ad-hoc collection of functions for working with GDELT.  
+`gdeltr` is my ad-hoc collection of functions for working with GDELT.  
 For working with the traditional event stream, it includes:
 
 * `gDate` for converting dates from `yyymmdd` to `yyyy-mm-dd`
