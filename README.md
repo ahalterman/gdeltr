@@ -18,6 +18,7 @@ For working with the traditional event stream, it includes:
 
 It also includes some quick hacks for working with the alpha experimental release of GDELT's Global Knowledge Graph, coming soon:
 * `GKGcomentions` for pulling co-mentioned organizations, people, or countries from a subsetted GKG file.
-* `write.gephi`: a wrapper for `write.table` that puts quotes around all elements in the df and writes with semicolon separators and without row/column names.
+* `toner` will, for a given GKG subset, return the tones associated with each person/place/organization associated with it.
 * `GKGcounts` will take a subset of the GKG and return just the info in the `COUNTS` column, nicely formatted.
-* `nameFixer` will standardize names from the GKG.  Only has about 30 right now.
+* `write.gephi`: a wrapper for `write.table` that puts quotes around all elements in the df and writes with semicolon separators and without row/column names.
+* `nameFixer` will standardize names from the GKG.  Only has about 30 (mostly Syria-related) names right now.
