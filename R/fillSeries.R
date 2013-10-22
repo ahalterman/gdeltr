@@ -9,7 +9,7 @@
 #'
 #' @return df2 A 
 #'
-#' @keywords GDELT
+#' @keywords GDELT, gdeltr
 #'
 #' @export
 #' 

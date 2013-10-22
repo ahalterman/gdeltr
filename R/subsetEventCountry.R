@@ -11,7 +11,7 @@
 #'
 #' @return df.out A data frame of the events of interet from the country, including geographic coordinates. 
 #'
-#' @keywords GDELT, geographic
+#' @keywords GDELT, geographic, gdeltr
 #'
 #' @export
 #' 

@@ -7,7 +7,7 @@
 #'
 #' @return newdate A vector of class date with "yyyy-mm-dd" format  \code{newdate}
 #'
-#' @keywords GDELT
+#' @keywords GDELT, gdeltr
 #'
 #' @export
 #' 

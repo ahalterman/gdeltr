@@ -1,8 +1,27 @@
 Package: gdeltr
-Title: 
-Description: 
+Title: R tools for GDELT
+Description: Useful tools for working with GDELT and the Global Knowledge Graph
 Version: 0.1
-Authors@R: # getOptions('devtools.desc.author')
-Depends: R (>= 3.0.1)
-License: # getOptions('devtools.desc.license')
+Author: 'Andrew Halterman' <ahalterman0@gmail.com>
+Maintainer: 'Andrew Halterman' <ahalterman0@gmail.com>
+Depends:
+    R (>= 3.0.1),
+    dplyr,
+    countrycode,
+    RSQLite,
+    RSQLite.extfuns
+License: MIT
 LazyData: true
+ByteCompile: true
+Collate:
+    'fillSeries.R'
+    'gDate.R'
+    'gdeltr-package.r'
+    'subsetEventCountry.R'
+    'write.gephi.R'
+    'toner.R'
+    'nameFixer.R'
+    'nameFixer_data.R'
+    'GKGcomentions.R'
+    'GKGcounts.R'
+    'getEventCounts.R'
