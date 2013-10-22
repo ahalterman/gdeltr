@@ -20,6 +20,12 @@
 
 
 subsetEventCountry <- function(event.root.code, country.name, min.date=20000101){
+  require(countrycode)
+  require(reshape2)
+  require(dplyr)
+  require(RSQLite)
+  require(RSQLite.extfuns)
+  
   country.code <- countrycode(country.name, "country.name", "fips104")
   df <- select(hist.db, SQLDATE, EventRootCode, ActionGeo_CountryCode, ActionGeo_Lat, ActionGeo_Long)
   df <- filter(df, SQLDATE >= min.date, EventRootCode==event.root.code, ActionGeo_CountryCode==country.code)

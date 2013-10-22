@@ -16,8 +16,7 @@
   \code{min.date}}
 }
 \value{
-  df.out A data frame counts per event per month in the
-  country
+  df A data frame counts per event per month in the country
 }
 \description{
   By default, this goes back to Jan 1 2000, but you can

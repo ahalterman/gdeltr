@@ -9,7 +9,7 @@ R package with tools for working with GDELT.
 For working with the traditional event stream, it includes:
 
 * `gDate` for converting dates from "yyymmdd" to "yyyy-mm-dd"
-* `subsetEventCountry` for returning lat/long fields given a country name and EventRootCode
+* `subsetEventCountry` for returning lat/long fields given a country name and EventRootCode.
 * `getEventCounts` for returning base, root, or regular event codes per month for a given country.
 * `fillSeries` to add missing days to a GDELT data frame for plotting or time series analysis
 
