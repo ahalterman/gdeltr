@@ -7,7 +7,7 @@
 #' @param gkg.df A subset of the Global Knowledge Graph \code{gkg.df}
 #' @param type Data types to subset: "themes", "persons", "organizations", "countries", or "placenames". \code{gkg.df}
 #'
-#' @return co-mentions A data frame containing count information.
+#' @return countries.df A data frame containing count information.
 #'
 #' @keywords GDELT, gdeltr
 #'
