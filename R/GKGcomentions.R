@@ -21,6 +21,7 @@
 GKGcomentions <- function(gkg.df, type) {
   if (type=="organizations" | type=="orgs"){
     orgs <- gkg.df$ORGANIZATIONS
+    if (is.factor(orgs)==TRUE){orgs <- as.character(orgs)}
     orgs <- strsplit(orgs, split=";")
     nMax <- max(sapply(orgs, length))
     orgs <- cbind(t(sapply(orgs, function(i) i[1:nMax])))
@@ -29,6 +30,7 @@ GKGcomentions <- function(gkg.df, type) {
   }
   if (type=="themes"){
     themes <- gkg.df$THEMES
+    if (is.factor(themes)==TRUE){themes <- as.character(themes)}
     themes <- strsplit(themes, split=";")
     nMax <- max(sapply(themes, length))
     themes <- cbind(t(sapply(themes, function(i) i[1:nMax])))
@@ -38,6 +40,7 @@ GKGcomentions <- function(gkg.df, type) {
     
   if (type=="persons"){
     persons <- gkg.df$PERSONS
+    if (is.factor(persons)==TRUE){persons <- as.character(persons)}
     persons <- strsplit(persons, split=";")
     nMax <- max(sapply(persons, length))
     persons <- cbind(t(sapply(persons, function(i) i[1:nMax])))
@@ -49,6 +52,7 @@ GKGcomentions <- function(gkg.df, type) {
   }
   if (type=="countries"){
     countries <- gkg.df$LOCATIONS
+    if (is.factor(countries)==TRUE){countries <- as.character(countries)}
     countries <- strsplit(countries, split=";")
     nMax <- max(sapply(countries, length))
     countries <- cbind(t(sapply(countries, function(i) i[1:nMax])))
