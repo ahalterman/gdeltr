@@ -10,7 +10,7 @@
   (character) \code{country.name}}
 
   \item{eventtype}{What event code resolution?  Options:
-  "code", "base", "root" \code{country.name}}
+  "code", "base", "root", "quad". \code{eventtype}}
 
   \item{min.date}{Furthest date back you want (numeric).
   \code{min.date}}
@@ -28,9 +28,8 @@
   want.  See Hadley Wickham's github page.
 }
 \details{
-  It pains me to say, but I think I'll need to pre-build
-  the output df to include all possible EventCodes to allow
-  merging with other countries.
+  Reverted to a prev. version.  No pre-build scaffolding to
+  get all of the columns.
 }
 \examples{
 mex.protest <- getEventCounts("Mexico", eventtype="root", min.date==20000101)

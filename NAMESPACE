@@ -1,5 +1,6 @@
 export(GKGcomentions)
 export(GKGcounts)
+export(GKGextractcameo)
 export(fillSeries)
 export(gDate)
 export(getEventCounts)

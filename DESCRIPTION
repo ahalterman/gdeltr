@@ -25,3 +25,4 @@ Collate:
     'GKGcomentions.R'
     'GKGcounts.R'
     'getEventCounts.R'
+    'GKGextractcameo.R'
