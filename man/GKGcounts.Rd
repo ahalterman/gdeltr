@@ -5,7 +5,7 @@
   GKGcounts(gkg)
 }
 \arguments{
-  \item{gkg}{A subset dataframe of the GKG.}
+  \item{gkg}{A subset dataframe of the GKG. \code{gkg}}
 }
 \value{
   counts A data frame containing information from the
