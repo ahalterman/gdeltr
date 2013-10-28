@@ -2,13 +2,16 @@
 \alias{toner}
 \title{Given a GKG subset, return the tones associated with each person/place/organization}
 \usage{
-  toner(df)
+  toner(df, type)
 }
 \arguments{
   \item{df}{A subset of the GKG, probably along one
   theme\code{df}}
 
-  \item{summarize}{Should the mean for each unique entitty
+  \item{type}{Return tones of organization, locations, or
+  persons?}
+
+  \item{summarize}{Should the mean for each unique entity
   be returned?  Caution: lots of alt. spellings
   \code{summarize}}
 }
@@ -18,12 +21,11 @@
 }
 \description{
   summarize will return the mean tone for each entity.
-  eventually, include type Return tone for persons,
-  countries, locations, or organizations? \code{type}
+  This feature isn't done yet.
 }
 \examples{
 > ieds <- gkg[grep("LANDMINE", gkg$THEMES),]
-> person.tone.ieds <- toner(ieds)
+> person.tone.ieds <- toner(ieds, type="persons")
 > dim(person.tone.ieds)
 [1] 4545    2
 }
