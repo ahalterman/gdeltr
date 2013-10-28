@@ -5,7 +5,7 @@ gdeltr
 
 Two basic utilities for working with the traditional event stream:
 
-* `gDate` for converting dates from "yyymmdd" to "yyyy-mm-dd"
+* `gDate` for converting dates from a "yyymmdd" string to a "yyyy-mm-dd" Date class.
 * `fillSeries` to add missing days to a GDELT data frame for plotting or time series analysis
 
 Two more advanced functions for pulling events from a `dplyr`/SQLite setup, as described [here](http://andrewhalterman.com/2013/08/28/gdelt_dplyr_sqlite/):
