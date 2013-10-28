@@ -17,7 +17,9 @@
 #' ieds.counts <- GKGcounts(ieds)
 
 GKGcounts <- function(gkg) {
+  if (!"COUNTS" %in% names(gkg)) stop("No column named 'COUNTS'")
   counts <- gkg$COUNTS
+  if (length(counts)==0) stop("No results--0 rows in input dataframe")
   counts <- strsplit(counts, split=";")
   counts <- unlist(counts)
   counts <- strsplit(counts, split="#")

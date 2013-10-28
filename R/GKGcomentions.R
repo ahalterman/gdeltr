@@ -5,7 +5,7 @@
 #' New feature: uses \code{nameFixer} to standardize people names.
 #'
 #' @param gkg.df A subset of the Global Knowledge Graph \code{gkg.df}
-#' @param type Data types to subset: "themes", "persons", "organizations", "countries", or "placenames". \code{gkg.df}
+#' @param type Data types to subset: "themes", "persons", "organizations", or "countries". \code{gkg.df}
 #'
 #' @return countries.df A data frame containing count information.
 #'
@@ -20,6 +20,7 @@
 
 GKGcomentions <- function(gkg.df, type) {
   if (type=="organizations" | type=="orgs"){
+    if (!"ORGANIZATIONS" %in% names(gkg.df)) stop("No column named 'ORGANIZATIONS'")
     orgs <- gkg.df$ORGANIZATIONS
     if (is.factor(orgs)==TRUE){orgs <- as.character(orgs)}
     orgs <- strsplit(orgs, split=";")
@@ -29,6 +30,7 @@ GKGcomentions <- function(gkg.df, type) {
     return(orgs)
   }
   if (type=="themes"){
+    if (!"THEMES" %in% names(gkg.df)) stop("No column named 'THEMES'")
     themes <- gkg.df$THEMES
     if (is.factor(themes)==TRUE){themes <- as.character(themes)}
     themes <- strsplit(themes, split=";")
@@ -39,6 +41,7 @@ GKGcomentions <- function(gkg.df, type) {
   }
     
   if (type=="persons"){
+    if (!"PERSONS" %in% names(gkg.df)) stop("No column named 'PERSONS'")
     persons <- gkg.df$PERSONS
     if (is.factor(persons)==TRUE){persons <- as.character(persons)}
     persons <- strsplit(persons, split=";")
@@ -51,6 +54,7 @@ GKGcomentions <- function(gkg.df, type) {
     return(persons)
   }
   if (type=="countries"){
+    if (!"LOCATIONS" %in% names(gkg.df)) stop("No column named 'LOCATIONS'")
     countries <- gkg.df$LOCATIONS
     if (is.factor(countries)==TRUE){countries <- as.character(countries)}
     countries <- strsplit(countries, split=";")
