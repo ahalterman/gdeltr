@@ -1,9 +1,7 @@
 gdeltr
 ======
 
-R package with tools for working with GDELT and the Global Knowledge Graph.
-
-`gdeltr` is my ad-hoc collection of functions for working with [GDELT](http://gdelt.utdallas.edu/).  It is completely untested on any other machine, has no error catching functions, and has completely excessive dependencies on other packages.  I recommend copying and pasting any code you find useful rather than installing the whole package.
+`gdeltr` is my ad-hoc collection of functions for working with [GDELT](http://gdelt.utdallas.edu/).  It is completely untested on any other machine, has no error catching functions, and has completely excessive dependencies on other packages.  *I recommend copying and pasting any code you find useful rather than installing the whole package.*
 
 Two basic utilities for working with the traditional event stream:
 
