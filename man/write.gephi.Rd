@@ -8,10 +8,11 @@
   \item{gkg.df}{A dataframe to export to gephi
   \code{gkg.df}}
 
-  \item{filename}{The name for the \code{gkg.df}}
+  \item{filename}{The name for the file.  Call it .csv even
+  though its semicolons \code{gkg.df}}
 
-  \item{type}{node or edge?  Node won't put quotes on
-  anything except the first column}
+  \item{type}{ragged or list?  List will generate an edge
+  list rather than a ragged data frame.}
 }
 \value{
   gkg.df A semicolon seperated file with quotes.

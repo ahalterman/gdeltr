@@ -18,6 +18,9 @@
 #' 
 
 fillSeries <- function(df, begin.date="2000-01-01", end.date="2013-09-30", date.column="SQLDATE", extraclean=FALSE){
+  if (class(df$date.column)=="integer"){
+    df$date.column <- gDate(df$date.column)
+  }
   daily <- as.data.frame(seq(from=as.Date(begin.date), to=as.Date(end.date), by="1 day"))
   names(daily) <- "Date"
   df <- merge(x=daily, y=df, by.x="Date", by.y=date.column, all.x=TRUE)

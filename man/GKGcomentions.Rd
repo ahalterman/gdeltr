@@ -13,7 +13,7 @@
   \code{gkg.df}}
 }
 \value{
-  co-mentions A data frame containing count information.
+  countries.df A data frame containing count information.
 }
 \description{
   This takes a GKG dataframe (or subset thereof) returns a
