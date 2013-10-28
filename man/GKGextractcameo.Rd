@@ -2,13 +2,13 @@
 \alias{GKGextractcameo}
 \title{Extract CAMEO events from GKG}
 \usage{
-  GKGextractcameo(df, justvector = FALSE)
+  GKGextractcameo(df, justvector = TRUE)
 }
 \arguments{
   \item{df}{A dataframe of GKG namesets}
 
   \item{justvector}{Return vector of ID numbers instead of
-  actual dataframe?}
+  actual data frame?}
 }
 \value{
   gdelt.df A vector of all linked CAMEO event IDs

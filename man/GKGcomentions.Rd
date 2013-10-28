@@ -9,8 +9,7 @@
   \code{gkg.df}}
 
   \item{type}{Data types to subset: "themes", "persons",
-  "organizations", "countries", or "placenames".
-  \code{gkg.df}}
+  "organizations", or "countries". \code{gkg.df}}
 }
 \value{
   countries.df A data frame containing count information.
