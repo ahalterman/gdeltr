@@ -1,10 +1,9 @@
 gdeltr
 ======
 
-R package with tools for working with GDELT.
+R package with tools for working with GDELT and the Global Knowledge Graph.
 
-
-`gdeltr` is my ad-hoc collection of functions for working with GDELT.  It is completely untested on any other machine, has no error catching functions, and has completely excessive dependencies on other packages.  I recommend copying and pasting any code you find useful rather than installing the whole package.
+`gdeltr` is my ad-hoc collection of functions for working with [GDELT](http://gdelt.utdallas.edu/).  It is completely untested on any other machine, has no error catching functions, and has completely excessive dependencies on other packages.  I recommend copying and pasting any code you find useful rather than installing the whole package.
 
 Two basic utilities for working with the traditional event stream:
 
@@ -17,9 +16,8 @@ Two more advanced functions for pulling events from a `dplyr`/SQLite setup, as d
 
 
 ### Global Knowledge Graph
-Kalev (rightly) recommends using 
-
-It also includes some quick hacks for working with the alpha experimental release of GDELT's Global Knowledge Graph, coming soon:
+The Global Knowledge Graph is the newest component of GDELT.  In his [announcement](http://gdeltblog.wordpress.com/2013/10/27/announcing-the-debut-of-the-gdelt-global-knowledge-graph/), Kalev describes it as " it attempts to connect every person, organization, location, count, theme, news source, and event across the planet into a single massive network that captures what’s happening around the world, what its context is and who’s involved, and how the world is feeling about it, every single day."
+He also points out that it's much more difficult to work with than the original event stream and recommends using Perl or Python for working with it.  (For one example, it's a nested structure using a combination of tabs, hashtags, and semicolons as separators.)  While Perl/Python may be better, there are lots of people (including me) who are much more comfortable working in R, even if it's inferior.   Here are my quick hacks for working with the alpha experimental release of GDELT's Global Knowledge Graph:
 * `GKGcomentions` for pulling co-mentioned organizations, people, or countries from a subsetted GKG file.
 * `GKGextractcameo` will return the events from the traditional stream associated with a subset of the GKG namespaces.  It can return either the vector of GLOBALEVENTIDs, or, if you have a dplyr/sqlite setup, the full data frame of events.
 * `toner` will, for a given GKG subset, return the tones associated with each person/place/organization associated with it.
