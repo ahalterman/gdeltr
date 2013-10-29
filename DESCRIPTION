@@ -26,3 +26,4 @@ Collate:
     'GKGcounts.R'
     'getEventCounts.R'
     'GKGextractcameo.R'
+    'GKGedgelist.R'
