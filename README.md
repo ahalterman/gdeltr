@@ -20,5 +20,6 @@ He also points out that it's much more difficult to work with than the original 
 * `GKGextractcameo` will return the events from the traditional stream associated with a subset of the GKG namespaces.  It can return either the vector of GLOBALEVENTIDs, or, if you have a dplyr/sqlite setup, the full data frame of events.
 * `toner` will, for a given GKG subset, return the tones associated with each person/place/organization associated with it.
 * `GKGcounts` will take a subset of the GKG and return just the info in the `COUNTS` column, nicely formatted.  This refers to info in the "Counts" column, not sums of number of events as above.
+* `GKGedgelist` will take a ragged data frame with co-mentions and format it into a two-column edge list for export to Gephi or other network analysis tool.
 * `write.gephi`: a wrapper for `write.table` that puts quotes around all elements in the df and writes with semicolon separators and without row/column names.
 * `nameFixer` will standardize names from the GKG.  Only has about 30 (mostly Syria-related) names right now.  This isn't really worth using yet and I'm sure there's a better approach than this.
