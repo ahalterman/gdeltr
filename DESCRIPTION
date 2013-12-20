@@ -13,17 +13,3 @@ Depends:
 License: MIT
 LazyData: true
 ByteCompile: true
-Collate:
-    'fillSeries.R'
-    'gDate.R'
-    'gdeltr-package.r'
-    'subsetEventCountry.R'
-    'write.gephi.R'
-    'toner.R'
-    'nameFixer.R'
-    'nameFixer_data.R'
-    'GKGcomentions.R'
-    'GKGcounts.R'
-    'getEventCounts.R'
-    'GKGextractcameo.R'
-    'GKGedgelist.R'

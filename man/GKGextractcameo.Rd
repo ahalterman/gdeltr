@@ -2,7 +2,7 @@
 \alias{GKGextractcameo}
 \title{Extract CAMEO events from GKG}
 \usage{
-  GKGextractcameo(df, justvector = TRUE)
+GKGextractcameo(df, justvector = TRUE)
 }
 \arguments{
   \item{df}{A dataframe of GKG namesets}
@@ -11,14 +11,13 @@
   actual data frame?}
 }
 \value{
-  gdelt.df A vector of all linked CAMEO event IDs
+gdelt.df A vector of all linked CAMEO event IDs
 }
 \description{
-  From a GKG subset dataframe, return a dataframe of all
-  linked CAMEO event IDs. If \code{justvector=TRUE}, the
-  fuction will return only a vector of linked CAMEO event
-  IDs rather than the complete dataframe of all matching
-  events.
+From a GKG subset dataframe, return a dataframe of all
+linked CAMEO event IDs. If \code{justvector=TRUE}, the
+fuction will return only a vector of linked CAMEO event IDs
+rather than the complete dataframe of all matching events.
 }
 \examples{
 cameos.events <- GKGextractcameo(mexico.cartels)

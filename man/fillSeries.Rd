@@ -2,9 +2,8 @@
 \alias{fillSeries}
 \title{Fills in missing dates in a data frame of GDELT events for plotting or time series analysis}
 \usage{
-  fillSeries(df, begin.date = "2000-01-01",
-    end.date = "2013-09-30", date.column = "SQLDATE",
-    extraclean = FALSE)
+fillSeries(df, begin.date = "2000-01-01", end.date = "2013-09-30",
+  date.column = "SQLDATE", extraclean = FALSE)
 }
 \arguments{
   \item{df}{A GDELT dataframe.  \code{df}}
@@ -19,11 +18,11 @@
   dates.  Defaults to "SQLDATE" \code{date.column}}
 }
 \value{
-  df2 A
+df2 A
 }
 \description{
-  Fills in missing dates in a data frame of GDELT events
-  for plotting or time series analysis
+Fills in missing dates in a data frame of GDELT events for
+plotting or time series analysis
 }
 \examples{
 R code here showing how your function works

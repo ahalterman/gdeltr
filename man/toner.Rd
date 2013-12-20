@@ -2,7 +2,7 @@
 \alias{toner}
 \title{Given a GKG subset, return the tones associated with each person/place/organization}
 \usage{
-  toner(df, type)
+toner(df, type)
 }
 \arguments{
   \item{df}{A subset of the GKG, probably along one
@@ -16,12 +16,12 @@
   \code{summarize}}
 }
 \value{
-  tones A df with names/locations and tones (and counts if
-  summarized).
+tones A df with names/locations and tones (and counts if
+summarized).
 }
 \description{
-  summarize will return the mean tone for each entity.
-  This feature isn't done yet.
+summarize will return the mean tone for each entity.  This
+feature isn't done yet.
 }
 \examples{
 > ieds <- gkg[grep("LANDMINE", gkg$THEMES),]

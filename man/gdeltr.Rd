@@ -4,6 +4,6 @@
 \alias{gdeltr-package}
 \title{gdeltr}
 \description{
-  gdeltr
+gdeltr
 }
 
