@@ -5,7 +5,7 @@
 #' New feature: uses \code{nameFixer} to standardize people names.
 #'
 #' @param gkg.df A subset of the Global Knowledge Graph \code{gkg.df}
-#' @param type Data types to subset: "themes", "persons", "organizations", or "countries". \code{gkg.df}
+#' @param type Data types to subset: "themes", "persons", "organizations", "countries", or "latlong". \code{gkg.df}
 #'
 #' @return countries.df A data frame containing count information.
 #'
@@ -71,6 +71,24 @@ GKGcomentions <- function(gkg.df, type) {
     cc <- function(x) {countrycode(x, "fips104", "country.name")}
     countries.df <- as.data.frame(lapply(countries.df[,1:ncol(countries.df)],FUN = function(x) {sapply(x,FUN=cc)}))
     return(countries.df)
-  }
+}
+  
+    if (type=="latlong"){
+      if (!"LOCATIONS" %in% names(gkg.df)) stop("No column named 'LOCATIONS'")
+      latlong <- gkg.df$LOCATIONS
+      if (is.factor(latlong)==TRUE){latlong <- as.character(latlong)}
+      latlong <- strsplit(latlong, split=";")
+      nMax <- max(sapply(latlong, length))
+      latlong <- cbind(t(sapply(latlong, function(i) i[1:nMax])))
+      latlong <- latlong[,3]
+      latlong.df <- data.frame(row.names=1:nrow(latlong))
+      for (i in 1:ncol(latlong)) {
+        tmp <- latlong[,i]
+        tmp1 <- strsplit(tmp, split="#")
+        tmp2 <- sapply(tmp1, "[", 3)
+        latlong.df <- cbind(latlong.df, tmp2)
+      }
+    }
+
   
 }
