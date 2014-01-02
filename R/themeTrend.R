@@ -32,6 +32,8 @@ themeTrend <- function(df, themes, location, overlay=TRUE, returndata=FALSE){
     # loop through the themes vector, return # per day of each.
     type.i <- themes[i]
     tmp <- df[grep(type.i, df$THEMES),]
+    #### DOES THIS WORK FOR LIMITED LOCATION? SHOULD I ADD IN #'s on each side? Check for false positives (easy) and false negatives (hard).
+    ## Maybe the solution is to split again on the # and take the whatever corresponds to the countrycode position.
     tmp$Number <- sapply(tmp$COUNTS, function(x) length(grep(location, unlist(strsplit(x, ";")))))
     tmp$type <- type.i
     theme.counts <- rbind(theme.counts, tmp)

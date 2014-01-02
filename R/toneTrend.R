@@ -25,15 +25,14 @@
 
 
 toneTrend <- function(df, objects, type, location, overlay=TRUE, span=0.3, returndata=FALSE){
-  require(gdeltr)
   require(ggplot2)
   theme.counts <- data.frame()
   for(i in 1:length(objects)){
     # loop through the themes vector, return # per day of each.
     object.i <- objects[i]
-    if(type=="theme"){
+    if(type=="theme" | type=="THEMES"){
       tmp <- df[grep(object.i, df$THEMES),]
-      tones <- strsplit(tmp$TONE, ",")
+      tones <- strsplit(as.character(tmp$TONE), ",")
       tmp$tone <- as.numeric(sapply(tones, "[", 1))
       tmp$type <- tolower(gsub("_", " ", object.i))
       theme.counts <- rbind(theme.counts, tmp)
@@ -50,10 +49,10 @@ toneTrend <- function(df, objects, type, location, overlay=TRUE, span=0.3, retur
   }
   if(overlay==TRUE){
     # all on the same graph
-    return(ggplot(data=theme.counts, aes(x=DATE, y=tone, color=type)) + geom_point(size=1) + geom_smooth(method="loess", span=span, se=FALSE, size=1) + ylab("Tone")  + theme_bw())
+    return(ggplot(data=theme.counts, aes(x=DATE, y=Tone, color=type)) + geom_point(size=2, alpha=0.7) + geom_smooth(method="loess", span=span, se=FALSE, size=1) + ylab("Tone")  + theme_bw())
   }
   if(overlay==FALSE){
     # on different graphs
-    return(ggplot(data=theme.counts, aes(x=DATE, y=Number, type)) + geom_line(size=1, alpha=.3) + geom_smooth(method="loess", span=span, se=FALSE, size=1) + facet_wrap(~ type, ncol=1) + theme_bw())
+    return(ggplot(data=theme.counts, aes(x=DATE, y=Tone, type)) + geom_line(size=1, alpha=.3) + geom_smooth(method="loess", span=span, se=FALSE, size=1) + facet_wrap(~ type, ncol=1) + theme_bw())
   }
 }

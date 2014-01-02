@@ -21,15 +21,15 @@
 
 toner <- function(df, type){
   if (!"TONE" %in% names(df)) stop("No column named 'TONE' in input data frame")
-  if (rnow(df)==0) stop("Input data frame has 0 rows")
+  if (nrow(df)==0) stop("Input data frame has 0 rows")
   
-  if (type=="Person" | "person" | "persons" | "PERSONS") {
+  if (type=="Person" | type=="person" | type=="persons" | type=="PERSONS") {
   persontone <- data.frame(stringsAsFactors=FALSE)
   if (!"PERSONS" %in% names(df)) stop("No column named 'PERSONS' in input data frame")
   for (i in 1:nrow(df)) {
     line <- df[i,]
-    persons <- line$PERSONS
-    tone <- line$TONE
+    persons <- as.character(line$PERSONS)
+    tone <- as.character(line$TONE)
     tone <- unlist(strsplit(tone, ","))
     tone <- as.numeric(tone[1])
     persons <- as.character(unlist(strsplit(persons, ";")))
