@@ -1,6 +1,6 @@
 #' Graph changes in tone over time, given a GKG subset.
 #' 
-#' This takes a GKG dataframe and organizations/themes/people of interest and returns the average tone of news coverage of that entity. Right now it only does themes.
+#' This takes a GKG dataframe and organizations/themes/people of interest and returns the tone of daily news coverage of that entity. Right now it only does themes.
 #' 
 #'
 #' @param df A subset of the Global Knowledge Graph, probably a country \code{gkg.df}

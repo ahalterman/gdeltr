@@ -26,15 +26,14 @@ themeTrend <- function(df, themes, location, overlay=TRUE, returndata=FALSE){
   require(gdeltr)
   require(ggplot2)
   # df should preferably just be COUNTS, THEMES, DATE for the region (or theme?) you're interested in.
-  # location should be a FIPS104 or a city name
+  # location must be a country code right now. In the future it should be a city or anything else grepable.
   theme.counts <- data.frame()
+  location <- paste0("#", location, "#")
   for(i in 1:length(themes)){
     # loop through the themes vector, return # per day of each.
     type.i <- themes[i]
     tmp <- df[grep(type.i, df$THEMES),]
-    #### DOES THIS WORK FOR LIMITED LOCATION? SHOULD I ADD IN #'s on each side? Check for false positives (easy) and false negatives (hard).
-    ## Maybe the solution is to split again on the # and take the whatever corresponds to the countrycode position.
-    tmp$Number <- sapply(tmp$COUNTS, function(x) length(grep(location, unlist(strsplit(x, ";")))))
+    tmp$Number <- sapply(tmp$LOCATIONS, function(x) length(grep(location, unlist(strsplit(x, ";")))))
     tmp$type <- type.i
     theme.counts <- rbind(theme.counts, tmp)
   }
