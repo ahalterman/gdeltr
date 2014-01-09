@@ -5,6 +5,7 @@
 #'
 #' @param df A subset of the Global Knowledge Graph, probably a country \code{gkg.df}
 #' @param themes A vector of themes from GKG.
+#' @param span The smoothing factor for the loess curve. Default is 0.3
 #' @param location A location, potentially more specific than the data frame subset.
 #' @param overlay Should the lines be plotted on the same graph or separate?
 #' @param returndata If true, returns the raw data and does not plot anything
@@ -22,7 +23,7 @@
 #' themeTrends(mex, c("CRIME_CARTELS", "SECURITY_SERVICES", "KILL"), location="Mexico")
 
 
-themeTrend <- function(df, themes, location, overlay=TRUE, returndata=FALSE){
+themeTrend <- function(df, themes, location, overlay=TRUE, returndata=FALSE, span=0.3){
   require(gdeltr)
   require(ggplot2)
   # df should preferably just be COUNTS, THEMES, DATE for the region (or theme?) you're interested in.
@@ -50,7 +51,7 @@ themeTrend <- function(df, themes, location, overlay=TRUE, returndata=FALSE){
   
   if(overlay==TRUE){
     # all on the same graph
-    return(ggplot(data=theme.counts, aes(x=DATE, y=Number, color=type)) + geom_line(size=1, alpha=.3) + geom_smooth(method="loess", span=0.3, se=FALSE, size=1) + ylim(0, maxheight) + ylab("Count")  + theme_bw())
+    return(ggplot(data=theme.counts, aes(x=DATE, y=Number, color=type)) + geom_line(size=1, alpha=.3) + geom_smooth(method="loess", span=span, se=FALSE, size=1) + ylim(0, maxheight) + ylab("Count")  + theme_bw())
   }
   
   if(overlay==FALSE){

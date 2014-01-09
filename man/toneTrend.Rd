@@ -32,8 +32,8 @@ day per theme.
 }
 \description{
 This takes a GKG dataframe and organizations/themes/people
-of interest and returns the average tone of news coverage
-of that entity. Right now it only does themes.
+of interest and returns the tone of daily news coverage of
+that entity. Right now it only does themes.
 }
 \examples{
 gkg <- read.csv("gkg.csv")

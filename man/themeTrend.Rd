@@ -2,13 +2,17 @@
 \alias{themeTrend}
 \title{Graph changes in themes over time, given a GKG subset.}
 \usage{
-themeTrend(df, themes, location, overlay = TRUE, returndata = FALSE)
+themeTrend(df, themes, location, overlay = TRUE, returndata = FALSE,
+  span = 0.3)
 }
 \arguments{
   \item{df}{A subset of the Global Knowledge Graph,
   probably a country \code{gkg.df}}
 
   \item{themes}{A vector of themes from GKG.}
+
+  \item{span}{The smoothing factor for the loess curve.
+  Default is 0.3}
 
   \item{location}{A location, potentially more specific
   than the data frame subset.}
